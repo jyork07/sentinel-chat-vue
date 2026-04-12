@@ -19,7 +19,7 @@ export default function SystemVitals() {
   return (
     <div className="vitals-pill fixed top-4 right-4 z-50 flex items-center gap-3 rounded-full px-4 py-2 text-xs font-mono text-muted-foreground select-none">
       <div className="flex items-center gap-1.5">
-        <span className={`inline-block h-1.5 w-1.5 rounded-full ${online ? "bg-emerald-400 shadow-[0_0_6px_theme(colors.emerald.400)]" : "bg-red-400 shadow-[0_0_6px_theme(colors.red.400)]"}`} />
+        <span className={`inline-block h-1.5 w-1.5 rounded-full ${online ? "bg-primary shadow-[0_0_6px_hsl(145,80%,42%)]" : "bg-destructive shadow-[0_0_6px_hsl(0,72%,51%)]"}`} />
         <span className="opacity-60">OCR</span>
       </div>
       {sys && (
