@@ -5,6 +5,7 @@ import ChatBubble from "@/components/ChatBubble";
 import ChatInput from "@/components/ChatInput";
 import TypingIndicator from "@/components/TypingIndicator";
 import SystemVitals from "@/components/SystemVitals";
+import ConnectionStatus from "@/components/ConnectionStatus";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import { Mic, MicOff } from "lucide-react";
 
@@ -96,6 +97,7 @@ export default function Index() {
       <ParticleCanvas intensity={intensity} speaking={isSpeaking} />
 
       <SystemVitals />
+      <ConnectionStatus />
 
       {/* JARVIS title */}
       <div className="fixed top-5 left-0 right-0 z-30 flex justify-center pointer-events-none">
