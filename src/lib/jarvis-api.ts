@@ -1,4 +1,4 @@
-const BASE_URL = "http://127.0.0.1:7474";
+const BASE_URL = "";
 
 const HEADERS = {
   "X-JARVIS-TOKEN": "jarvis-openclaw-secret-2026",

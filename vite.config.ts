@@ -11,6 +11,12 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: false,
     },
+    proxy: {
+      "/api": {
+        target: "http://127.0.0.1:7474",
+        changeOrigin: true,
+      },
+    },
   },
   plugins: [
     react(),
