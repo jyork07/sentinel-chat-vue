@@ -111,8 +111,8 @@ export default function Index() {
         </h1>
       </div>
 
-      {/* Status indicator */}
-      <div className="fixed top-5 left-5 z-30">
+      {/* Top-left controls */}
+      <div className="fixed top-5 left-5 z-30 flex items-center gap-2">
         <button
           onClick={listening ? stopListening : startListening}
           className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono transition-all ${
@@ -134,6 +134,32 @@ export default function Index() {
               : 'Say "Jarvis"'
             : "Voice off"}
         </button>
+
+        <button
+          onClick={() => navigate("/gestures")}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono bg-secondary text-muted-foreground hover:text-foreground transition-all"
+          title="Gesture Controls"
+        >
+          <Hand size={12} />
+        </button>
+
+        {vaultConnected && (
+          <div className="flex items-center gap-1.5 px-2 py-1.5 rounded-full text-xs font-mono glass text-muted-foreground" title="Obsidian vault connected">
+            <BookOpen size={12} className="text-primary" />
+          </div>
+        )}
+
+        {showChat && messages.length >= 2 && (
+          <button
+            onClick={() => {
+              saveConversationMemory(messages);
+            }}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono bg-secondary text-muted-foreground hover:text-foreground transition-all"
+            title="Save conversation to memory"
+          >
+            <Save size={12} />
+          </button>
+        )}
       </div>
 
       {/* Center status when idle */}
