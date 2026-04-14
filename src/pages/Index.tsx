@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { fetchChatHistory, sendMessage, type ChatMessage } from "@/lib/jarvis-api";
 import { useSpeechRecognition, speak } from "@/hooks/use-speech";
+import { saveConversationMemory, searchKnowledge, getVaultStatus } from "@/lib/obsidian";
 import ChatBubble from "@/components/ChatBubble";
 import ChatInput from "@/components/ChatInput";
 import TypingIndicator from "@/components/TypingIndicator";
 import SystemVitals from "@/components/SystemVitals";
 import ConnectionStatus from "@/components/ConnectionStatus";
 import ParticleCanvas from "@/components/ParticleCanvas";
-import { Mic, MicOff } from "lucide-react";
+import { Mic, MicOff, Hand, BookOpen, Save } from "lucide-react";
 
 export default function Index() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
