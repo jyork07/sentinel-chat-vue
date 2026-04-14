@@ -5,6 +5,7 @@ import ChatBubble from "@/components/ChatBubble";
 import ChatInput from "@/components/ChatInput";
 import TypingIndicator from "@/components/TypingIndicator";
 import SystemVitals from "@/components/SystemVitals";
+import ConnectionStatus from "@/components/ConnectionStatus";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import { Mic, MicOff } from "lucide-react";
 
