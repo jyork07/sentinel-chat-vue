@@ -12,11 +12,13 @@ import ParticleCanvas from "@/components/ParticleCanvas";
 import { Mic, MicOff, Hand, BookOpen, Save } from "lucide-react";
 
 export default function Index() {
+  const navigate = useNavigate();
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [loading, setLoading] = useState(false);
   const [newMsgIdx, setNewMsgIdx] = useState<number | null>(null);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [showChat, setShowChat] = useState(false);
+  const [vaultConnected, setVaultConnected] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   const handleVoiceResult = useCallback(async (text: string) => {
