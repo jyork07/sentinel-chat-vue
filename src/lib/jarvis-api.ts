@@ -1,4 +1,6 @@
-const BASE_URL = "";
+// In Electron (file:// protocol), use the full backend URL; in dev, use relative paths (Vite proxy)
+const isElectron = typeof window !== "undefined" && window.location.protocol === "file:";
+const BASE_URL = isElectron ? "http://127.0.0.1:7474" : "";
 
 const HEADERS = {
   "X-JARVIS-TOKEN": "jarvis-openclaw-secret-2026",
