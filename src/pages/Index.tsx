@@ -64,6 +64,7 @@ export default function Index() {
         }
       })
       .catch(() => {});
+    getVaultStatus().then((s) => setVaultConnected(s.connected));
   }, []);
 
   useEffect(() => {
