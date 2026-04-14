@@ -97,6 +97,7 @@ export default function Index() {
       <ParticleCanvas intensity={intensity} speaking={isSpeaking} />
 
       <SystemVitals />
+      <ConnectionStatus />
 
       {/* JARVIS title */}
       <div className="fixed top-5 left-0 right-0 z-30 flex justify-center pointer-events-none">
