@@ -1,8 +1,25 @@
+import { useEffect, useRef } from "react";
 import { Download, Monitor, Cpu, Shield, Wifi, Github } from "lucide-react";
 
 const DOWNLOAD_URL = "https://github.com/your-repo/jarvis/releases/latest/download/JARVIS-Setup.exe";
 
 export default function DownloadPage() {
+  const triggered = useRef(false);
+
+  useEffect(() => {
+    if (triggered.current) return;
+    triggered.current = true;
+    // Auto-trigger download after a short delay so the user sees the page
+    const timer = setTimeout(() => {
+      const a = document.createElement("a");
+      a.href = DOWNLOAD_URL;
+      a.download = "JARVIS-Setup.exe";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Hero */}
