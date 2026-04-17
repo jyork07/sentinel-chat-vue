@@ -1,27 +1,22 @@
-import { useEffect, useRef } from "react";
 import { Download, Monitor, Cpu, Shield, Wifi, Github, Terminal } from "lucide-react";
 
 const DOWNLOAD_URL = "https://github.com/your-repo/jarvis/releases/latest/download/JARVIS-Setup.exe";
 const PS_SCRIPT_URL = "/jarvis-install.ps1";
 
 export default function DownloadPage() {
-  const triggered = useRef(false);
-
-  useEffect(() => {
-    if (triggered.current) return;
-    triggered.current = true;
-    // Auto-trigger download after a short delay so the user sees the page
-    const timer = setTimeout(() => {
-      const a = document.createElement("a");
-      a.href = DOWNLOAD_URL;
-      a.download = "JARVIS-Setup.exe";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, []);
   return (
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Hero */}
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
+        <div className="relative max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4">
+            <span className="text-primary">J.A.R.V.I.S.</span>
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
+            Your personal AI assistant — voice control, gesture recognition, Obsidian memory, and local LLM powered intelligence. All running on your machine.
+          </p>
+
     <div className="min-h-screen bg-background text-foreground">
       {/* Hero */}
       <div className="relative overflow-hidden">
