@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
-import { Download, Monitor, Cpu, Shield, Wifi, Github } from "lucide-react";
+import { Download, Monitor, Cpu, Shield, Wifi, Github, Terminal } from "lucide-react";
 
 const DOWNLOAD_URL = "https://github.com/your-repo/jarvis/releases/latest/download/JARVIS-Setup.exe";
+const PS_SCRIPT_URL = "/jarvis-install.ps1";
 
 export default function DownloadPage() {
   const triggered = useRef(false);
@@ -33,16 +34,34 @@ export default function DownloadPage() {
             Your personal AI assistant — voice control, gesture recognition, Obsidian memory, and local LLM powered intelligence. All running on your machine.
           </p>
 
-          <a
-            href={DOWNLOAD_URL}
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-primary text-primary-foreground text-lg font-semibold hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/25 hover:scale-105 active:scale-100"
-          >
-            <Download size={22} />
-            Download for Windows
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <a
+              href={DOWNLOAD_URL}
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-primary text-primary-foreground text-lg font-semibold hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/25 hover:scale-105 active:scale-100"
+            >
+              <Download size={22} />
+              Download Installer (.exe)
+            </a>
+            <a
+              href={PS_SCRIPT_URL}
+              download="jarvis-install.ps1"
+              className="inline-flex items-center gap-3 px-6 py-4 rounded-xl border border-border/60 bg-card text-foreground font-medium hover:border-primary/40 hover:bg-card/80 transition-all"
+            >
+              <Terminal size={20} />
+              PowerShell Script
+            </a>
+          </div>
           <p className="mt-3 text-xs text-muted-foreground/60">
-            Windows 10/11 · x64 · ~180 MB
+            Windows 10/11 · x64 · Auto-installs Git, Node, Python, Obsidian & Ollama
           </p>
+          <details className="mt-6 max-w-2xl mx-auto text-left">
+            <summary className="text-xs text-muted-foreground/70 cursor-pointer hover:text-muted-foreground">
+              Or run one-liner in PowerShell (Admin)
+            </summary>
+            <pre className="mt-2 p-3 rounded-lg bg-muted/50 text-xs font-mono text-muted-foreground overflow-x-auto">
+              {`irm ${typeof window !== "undefined" ? window.location.origin : ""}/jarvis-install.ps1 | iex`}
+            </pre>
+          </details>
         </div>
       </div>
 
